@@ -48,31 +48,6 @@ def implementation(dependency : str) -> 'Dependency' :
 def implementation(group_id: str, artifact_id: str, version: str,replace : 'ReplaceAlias' = None) -> 'Dependency' :
     return Dependency(DependencyType.Implementation,group_id,artifact_id,version,replace)
 
-# TODO; move this to new module and define toplevel functions using this to create dependency
-class AndroidDependencyType(DependencyTypeBase,Enum) :
-    """
-    Enum class representing Android-specific dependency types in Gradle.
-
-    This class extends the `Enum` class and inherits from `DependencyTypeBase`. It defines the Android-specific dependency types
-    used in Gradle, such as "compileOnly", "runtimeOnly", "testImplementation", and "androidTestImplementation". These types are specifically for Android projects.
-
-    Attributes:
-        CompileOnly (str): Represents the "compileOnly" Android dependency type.
-        RuntimeOnly (str): Represents the "runtimeOnly" Android dependency type.
-        TestImplementation (str): Represents the "testImplementation" Android dependency type.
-        AndroidTestImplementation (str): Represents the "androidTestImplementation" Android dependency type.
-
-    Methods:
-        None
-    """
-    CompileOnly = "compileOnly"
-    RuntimeOnly = "runtimeOnly"
-    TestImplementation = "testImplementation"
-    AndroidTestImplementation = "androidTestImplementation"
-
-    def __str__(self) -> str :
-        return str(self.value)
-
 ReplaceAlias :TypeAlias = Optional[Callable[[Self,GradleMetadata,Any],None]]
 
 class Dependency(ProvideMetadata):
