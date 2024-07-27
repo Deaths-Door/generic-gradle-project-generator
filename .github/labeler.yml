@@ -1,0 +1,20 @@
+workflows:
+- changed-files:
+  - any-glob-to-any-file: '.github/**'
+
+examples:
+- changed-files:
+  - any-glob-to-any-file: 'examples/**'
+
+experiments:
+- changed-files:
+  - any-glob-to-any-file: 'experiments/**'
+  
+core:
+- changed-files:
+  - any-glob-to-any-file: 'core/**'
+  
+info:
+- changed-files:
+  - any-glob-to-any-file: '*.md'
+
